@@ -13,7 +13,7 @@ def add_or_dig(f, parent_name, parent_level, lang=False, N=None):
         N = N.replace(u'\xa0', u' ')
         N = re.subn(r'\[\d\]', "", N)[0]
         N = re.findall(r'(?i)(((\d*\.\d*)|(\d*)) [m,b]illion|(\d{1,3},){1,3}\d{1,3})', N)[0][0]
-        parent_level.append(dict(name=f, parent=parent_name, n=N, children=list()))
+        parent_level.append(dict(name=f, parent=parent_name, n=N, bold=True, children=list()))
     else:
         if len(parent_level) == 0 or f not in list(map(lambda x: x["name"], parent_level)):
             parent_level.append(dict(name=f, parent=parent_name, children=list()))
