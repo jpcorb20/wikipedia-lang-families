@@ -16,15 +16,29 @@ for i, lang in enumerate(langs):
 
         page_html = BeautifulSoup(wiki_page.html(), features='html.parser')
 
-        for f in page_html.find_all("tr"):
+        trs = page_html.find_all("tr")
+
+        result = dict()
+        for f in trs:
             ths = f.find_all("th")
             if len(ths) > 0 and ths[0].text == "Language family":
                 family_parts = [a.text for a in f.find_all("td")[0].find_all('a') if "[" not in a.text and "]" not in a.text]
-                results.append({
+                result = {
                     "Language": lang,
+                    "Native speakers": None,
                     "Family": ",".join(family_parts)
-                })
+                }
                 break
+
+        for f in trs:
+            ths = f.find_all("th")
+            if len(ths) > 0 and ths[0].text == "Native speakers":
+                result["Native speakers"] = f.find_all("td")[0].text
+                break
+
+        if result != dict():
+            results.append(result)
+
     except wikipedia.exceptions.PageError:
         print("Page Error")
 
