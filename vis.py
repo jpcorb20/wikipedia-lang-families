@@ -43,4 +43,4 @@ if __name__ == "__main__":
     pprint(lang_family_tree)
 
     with open("language_family_tree.json", "w") as fp:
-       json.dump(lang_family_tree, fp)
+        json.dump(lang_family_tree, fp)
