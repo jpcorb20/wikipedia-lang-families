@@ -71,8 +71,8 @@
         });
 
         var margin = {top: 20, right: 20, bottom: 20, left: 100},
-            width = 1500 - margin.right - margin.left,
-            height = 1500 - margin.top - margin.bottom;
+            width = 1800 - margin.right - margin.left,
+            height = 7000 - margin.top - margin.bottom;
 
         var i = 0,
             duration = 750,
@@ -92,7 +92,7 @@
             .append("svg")
             //responsive SVG needs these 2 attributes and no width and height attr
             .attr("preserveAspectRatio", "xMinYMin meet")
-            .attr("viewBox", "0 0 1500 3000")
+            .attr("viewBox", "0 0 1800 7000")
             //class to make it responsive
             .classed("svg-content-responsive", true)
             .append("g")
@@ -113,7 +113,7 @@
                 links = tree.links(nodes);
 
             nodes.forEach(function (d) {
-                d.y = d.depth * 130;
+                d.y = d.depth * 150;
             });
 
             var node = svg.selectAll("g.node")
