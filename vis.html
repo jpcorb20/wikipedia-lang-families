@@ -43,7 +43,7 @@
           left: 0;
       }
 
-      h1 {
+      h1, p {
         text-align: center;
       }
 
@@ -53,7 +53,8 @@
 
   <body>
 
-  <h1>Family of <em>Google Translate</em> languages from <em>Wikipedia</em></h1>
+  <h1>Family of <em>Google Translate</em> languages based on <em>Wikipedia</em></h1>
+  <p>Made by Jean-Philippe Corbeil and Hadi Abdi Ghavidel</p>
 
     <!-- load the d3.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
@@ -71,7 +72,7 @@
 
         var margin = {top: 20, right: 20, bottom: 20, left: 100},
             width = 1500 - margin.right - margin.left,
-            height = 3000 - margin.top - margin.bottom;
+            height = 1500 - margin.top - margin.bottom;
 
         var i = 0,
             duration = 750,
@@ -223,7 +224,6 @@
           }
           update(d);
         }
-
     </script>
 
   </body>
