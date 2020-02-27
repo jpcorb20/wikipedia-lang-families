@@ -33,4 +33,4 @@ data["Native speakers"] = data["Native speakers"].apply(lambda x: extract_number
 # Find back languages.s
 id_select = data.groupby(["Family"], sort=False)['Native speakers'].transform(max) == data["Native speakers"]
 
-print(data[id_select].sort_values("Native speakers", ascending=False))
+data[id_select].sort_values("Native speakers", ascending=False).to_excel("top_spoken_languages.xlsx")
